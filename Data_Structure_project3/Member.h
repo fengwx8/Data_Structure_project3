@@ -1,4 +1,3 @@
-#pragma once
 #include<vector>
 #include<iostream>
 #define Max_size 10
@@ -6,8 +5,7 @@ using namespace std;
 class Spouse{
 	private:
 		bool alive;
-		string firstname;
-		string lastname;
+		string name;
 		bool gender;
 		string birth_date;
 		string death_date;
@@ -18,7 +16,7 @@ class Spouse{
 		bool getAlive() const;
 		void setAlive(bool);
 		string getName() const;
-		void setName(string,string);
+		void setName(string);
 		bool getGender() const;
 		void setGender(bool);
 		string getBirth() const;
@@ -33,11 +31,12 @@ class Member{
 		bool alive;
 		string firstname;
 		string lastname;
-		bool gender;
+		bool gender;//true male false female
 		string birth_date;
 		string death_date;
 		vector<string> info;
 		Spouse spouse;
+		Member* father;
 		enum identity{patriarch, clansman, tourist};
 		unsigned long long password;
 		bool state; //true:married false:single
@@ -45,6 +44,7 @@ class Member{
 		vector<string> child_name;
 		
 	public:
+		friend class FamilyTree;
 		Member();
 		Member(string);
 		~Member();
@@ -60,6 +60,7 @@ class Member{
 		string getDeath() const;
 		void setDeath(string);
 		string getInfo() const;//shengping
+		Spouse getSpouse() const;
 		void setInfo(string);
 		int getGene() const;
 		void setGene(int);
@@ -69,6 +70,7 @@ class Member{
 		unsigned long long getPassword() const;
 		string Getmessage();//all message
 		void changeName(string);//change lastname
-		friend vector<Member*>& getChild();
-		friend vector<string>& getChildname(); //return names of children
+		vector<string> getChildname(); //return names of children
+		friend ostream& operator<<(ostream&,const Member&);
+		friend istream& operator>>(istream&,Member&);
 };
