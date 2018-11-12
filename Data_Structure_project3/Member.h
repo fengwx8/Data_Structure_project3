@@ -16,7 +16,7 @@ class Spouse{
 		string name;
 		bool gender;
 		string birth_date;
-		string death_date;
+		string weddingdate;
 		
 	public:
 		Spouse() = default;
@@ -27,8 +27,8 @@ class Spouse{
 		void setName(string);
 		bool getGender() const;
 		void setGender(bool);
-		string getBirth() const;
-		void setBirth(string);
+		string getWedding() const;
+		void setWedding(string);
 		string getDeath() const;
 		void setDeath(string);
 		Spouse& operator=(const Spouse&);
