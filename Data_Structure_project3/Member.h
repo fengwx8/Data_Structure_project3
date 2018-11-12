@@ -44,7 +44,6 @@ class Member{
 		string lastname;
 		bool gender;//true male false female
 		string birth_date;
-		string weddingdate;
 		vector<string> info;
 		Spouse spouse;
 		Member* father;
@@ -72,8 +71,6 @@ class Member{
 		void setGender(bool);
 		string getBirth() const;
 		void setBirth(string);
-		string getWedding() const;
-		void setWedding(string);
 		string getInfo() const;//shengping
 		Spouse getSpouse() const;
 		void setInfo(string);
